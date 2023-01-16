@@ -1,0 +1,155 @@
+<mat-card style="width: 500px; overflow-y: hidden; padding: 15px;">
+  <mat-card-header>
+    <mat-card-title>Cadastrar nova empresa</mat-card-title>
+  </mat-card-header>
+  <form style="display: flex; flex-direction: column; justify-content: space-between;">
+    <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
+      <mat-tab label="Empresa">
+
+          <form [formGroup]="formEmpresa" style="display: grid; grid-template-columns: 1fr 1fr;padding: 10px; column-gap: 15px;">
+
+            <mat-form-field appearance="outline">
+              <mat-label>CNPJ</mat-label>
+              <input matInput placeholder="CNPJ" required formControlName="cnpj" name="cnpj">
+              <mat-icon matSuffix style="cursor: pointer;"  (click)="buscarEmpresa()" *ngIf="!formEmpresa.get('cnpj')?.invalid">search</mat-icon>
+              <mat-hint *ngIf="formEmpresa.get('cnpj')?.invalid"> CNPJ inválido </mat-hint>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Razão Social</mat-label>
+              <input matInput placeholder="Razão Social" required formControlName="razaoSocial" name="razaoSocial">
+              <mat-hint *ngIf="formEmpresa.get('razaoSocial')?.invalid"> Razão Social inválido </mat-hint>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Nome Fantasia</mat-label>
+              <input matInput placeholder="Nome Fantasia" required formControlName="nomeFantasia" name="nomeFantasia">
+              <mat-hint *ngIf="formEmpresa.get('nomeFantasia')?.invalid"> Nome Fantasia inválido </mat-hint>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Capital Social</mat-label>
+              <input matInput placeholder="Capital Social" required formControlName="capitalSocial"
+                name="capitalSocial">
+              <mat-hint *ngIf="formEmpresa.get('capitalSocial')?.invalid"> Capital Social inválido </mat-hint>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Email</mat-label>
+              <input matInput placeholder="Email" required formControlName="email" name="email">
+              <mat-hint *ngIf="formEmpresa.get('email')?.invalid"> Email inválido </mat-hint>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Telefone</mat-label>
+              <input matInput placeholder="Telefone" required formControlName="telefone" name="telefone">
+              <mat-hint *ngIf="formEmpresa.get('telefone')?.invalid"> Telefone inválido </mat-hint>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Site</mat-label>
+              <input matInput placeholder="Site" formControlName="site" name="site">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>CNAE</mat-label>
+              <input matInput placeholder="CNAE" required formControlName="cnae" name="CNAE">
+              <mat-hint *ngIf="formEmpresa.get('cnae')?.invalid"> CNAE inválido </mat-hint>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Descricao CNAE</mat-label>
+              <input matInput placeholder="Descricao CNAE" required formControlName="cnaeDescricao"
+                name="descricaoCNAE">
+              <mat-hint *ngIf="formEmpresa.get('cnaeDescricao')?.invalid"> Descricao CNAE inválido </mat-hint>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Mercado</mat-label>
+              <input matInput placeholder="Mercado" required formControlName="mercado" name="mercado">
+              <mat-hint *ngIf="formEmpresa.get('mercado')?.invalid"> Mercado inválido </mat-hint>
+            </mat-form-field>
+
+        </form>
+
+      </mat-tab>
+      <mat-tab label="Endereço">
+        <form [formGroup]="formEndereco" style="display: grid; grid-template-columns: 1fr 1fr;padding: 10px; column-gap: 15px;">
+
+          <mat-form-field appearance="outline" style="grid-column: span 2 / span 2;">
+            <mat-label>CEP</mat-label>
+            <input matInput placeholder="CEP" required formControlName="cep" name="cep">
+            <mat-hint *ngIf="formEndereco.get('cep')?.invalid"> CEP inválido </mat-hint>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Cidade</mat-label>
+            <input matInput placeholder="Cidade" required formControlName="cidade" name="cidade">
+            <mat-hint *ngIf="formEndereco.get('cidade')?.invalid"> Cidade inválido </mat-hint>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>UF</mat-label>
+            <input matInput placeholder="Estado" required formControlName="uf" name="uf">
+            <mat-hint *ngIf="formEndereco.get('uf')?.invalid"> UF inválido </mat-hint>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" style="grid-column: span 2 / span 2;">
+            <mat-label>Longradouro</mat-label>
+            <input matInput placeholder="Logradouro" required formControlName="longradouro" name="longradouro">
+            <mat-hint *ngIf="formEndereco.get('longradouro')?.invalid"> Longradouro inválido </mat-hint>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Numero</mat-label>
+            <input matInput placeholder="Numero" required formControlName="numero" name="numero">
+            <mat-hint *ngIf="formEndereco.get('numero')?.invalid"> Numero inválido </mat-hint>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Bairro</mat-label>
+            <input matInput placeholder="Bairro" required formControlName="bairro" name="bairro">
+            <mat-hint *ngIf="formEndereco.get('bairro')?.invalid"> Bairro inválido </mat-hint>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" style="grid-column: span 2 / span 2;">
+            <mat-label>Complemento</mat-label>
+            <input matInput placeholder="Complemento" formControlName="complemento" name="complemento">
+            <mat-hint *ngIf="formEndereco.get('complemento')?.invalid"> Complemento inválido </mat-hint>
+          </mat-form-field>
+
+        </form>
+
+      </mat-tab>
+      <mat-tab label="Socios">
+
+        <table mat-table [dataSource]="dataSource" matSort
+          style="display:block; height: 412px; overflow-y: auto; width: 300px;">
+
+          <ng-container matColumnDef="socios">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Socio </th>
+            <td mat-cell *matCellDef="let row">
+              <div>{{row.nome_socio + ' - ' + row.qualificacao_socio}}</div>
+              <div style="font-size: 11px;">Data de Entrada: {{row.data_entrada_sociedade}}</div>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        </table>
+
+      </mat-tab>
+    </mat-tab-group>
+
+    <div style="display: flex; justify-content: end; column-gap: 15px;">
+
+      <button mat-raised-button color="warn" style="" mat-dialog-close>Cancelar</button>
+
+      <button mat-raised-button color="primary" (click)="adicionarEmpresa()" [disabled]="!formEmpresa.valid || !formEndereco.valid">Adicionar
+        Empresa</button>
+
+    </div>
+
+  </form>
+</mat-card>

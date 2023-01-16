@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+$azulClaro: rgb(1,113,173);
+$azul: rgba(1,80,122,1);
+$azulEscuro: rgba(15,40,52,1);
+
+.bg-degradeAzul {
+
+  display: flex !important;
+
+  justify-items: center;
+
+  align-items: center;
+
+  background: $azulClaro;
+  background: linear-gradient(90deg, $azulClaro 0%, $azul 50%, $azulEscuro 100%);
+}
